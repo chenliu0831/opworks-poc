@@ -6,6 +6,6 @@ Chef::Log.info('Installing python dependencies')
 include_recipe 'python'
 include_recipe 'python::pip'
 
-python_pip "#{node['flask-poc']['package_location']}"
+python_pip "#{node['flask']['package_location']}"
 
 Chef::Log.info('Python dependencies install finished')

@@ -17,10 +17,10 @@ node[:deploy].each do |application, deploy|
     app application
   end
 
-  include_recipe 'flask-poc::python_install'
-  include_recipe 'flask-poc::service'
+  include_recipe 'flask::python_install'
+  include_recipe 'flask::service'
 
   #start the sevice
-  notifies :restart, resources(:supervisor_service => 'flask-poc')
+  notifies :restart, resources(:supervisor_service => 'flask')
 
 end
