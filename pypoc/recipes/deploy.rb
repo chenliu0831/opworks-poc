@@ -46,6 +46,9 @@ node[:deploy].each do |application, deploy|
   include_recipe 'pypoc::service'
 
   #restart the sevice
-  notifies :restart, "supervisor_service[flask_app]"
+  template 'configuration' do
+    notifies :restart, "supervisor_service[flask_app]"
+  end
+
 
 end
