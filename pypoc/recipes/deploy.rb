@@ -37,9 +37,15 @@ node[:deploy].each do |application, deploy|
 
   Chef::Log.info('Python dependencies install finished')
 
+  execute "pip-freeze" do
+    command "pip freeze"
+    action :run
+  end
+
+  include_recipe 'supervisor'
   include_recipe 'pypoc::service'
 
-  #start the sevice
-  notifies :restart, resources(:supervisor_service => 'flask_app')
+  #restart the sevice
+  notifies :restart, "supervisor_service[flask_app]"
 
 end
