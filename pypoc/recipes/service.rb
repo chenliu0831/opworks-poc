@@ -4,7 +4,7 @@ include_recipe 'supervisor'
 supervisor_service 'flask_app' do
   service_name 'flask_app'
   command "python app.py"
-  action :disable
+  action :enable
   autostart=false
   autorestart=true
   user 'bodylabs'

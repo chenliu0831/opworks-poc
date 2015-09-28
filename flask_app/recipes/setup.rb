@@ -1,1 +1,0 @@
-Chef::Log.info('Hello. Setting things up')
