@@ -1,4 +1,4 @@
 # This is for loading custom deployment attributes
 
-include_recipe 'flask::service'
+include_recipe 'flask_app::service'
 
