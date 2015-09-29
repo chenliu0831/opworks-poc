@@ -26,29 +26,24 @@ node[:deploy].each do |application, deploy|
   end
 
   Chef::Log.info('Installing python dependencies')
-
+  Chef::Log.info(deploy)
   # POC app
 
   # https://supermarket.chef.io/cookbooks/python
   include_recipe 'python'
   include_recipe 'python::pip'
 
-  python_pip "-r #{node['flask_app']['package_location']}"
+  current_dir = ::File.join(deploy[:deploy_to], 'current')
+
+  python_pip "-r #{current_dir}/requirements_prod.txt"
 
   Chef::Log.info('Python dependencies install finished')
 
-  execute "pip-freeze" do
-    command "pip freeze"
-    action :run
-  end
-
-  include_recipe 'supervisor'
   include_recipe 'pypoc::service'
 
   #restart the sevice
-  template 'configuration' do
-    notifies :restart, "supervisor_service[flask_app]"
+  supervisor_service 'numpy_app' do
+    action [:enable, :restart]
   end
-
 
 end

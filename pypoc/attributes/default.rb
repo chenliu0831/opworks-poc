@@ -1,9 +1,11 @@
 # Defaults attributes
 default['python']['version'] = '2.7.10'
 
-default['deploy']['flask_app']['deploy_to'] = '/bodylabs/poc'
-default['flask_app']['package_location'] = "#{default['deploy']['flask_app']['deploy_to']}/requirements_prod.txt"
-default['flask_app']['stderr_log_file'] = '/bodylabs/logs/flask_app.stderr.log'
-default['flask_app']['stdout_log_file'] = '/bodylabs/logs/flask_app.stdout.log'
+default['deploy']['pypoc']['user'] = 'bodylabs'
+default['deploy']['pypoc']['group'] = 'bodylabs'
+default['deploy']['pypoc']['deploy_to'] = '/bodylabs/pypoc'
 
-default['flask_app']['revision'] = 'master'
+default['pypoc']['workdir'] = "#{default['deploy']['pypoc']['deploy_to']}/current"
+default['supervisor']['log_dir'] = default['pypoc']['log_dir'] = "#{default['pypoc']['workdir']}/log"
+default['pypoc']['stderr_log_file'] = "#{default['pypoc']['log_dir']}/pypoc.stderr.log"
+default['pypoc']['stdout_log_file'] = "#{default['pypoc']['log_dir']}/pypoc.stdout.log"

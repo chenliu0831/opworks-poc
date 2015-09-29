@@ -1,0 +1,28 @@
+{
+  "opsworks": {
+    "layers": {
+      "pypoc": {
+        "instances": {
+          "pypoc1": {"private-ip": "10.10.10.20"}
+        }
+      }
+    }
+  },
+  "deploy": {
+    "pypoc": {
+      "scm": {
+        "scm_type": "git",
+        "repository": "opsworks-python-app"
+      },
+      "deploy_to": "/bodylabs/pypoc"
+
+    }
+  },
+  "opsworks_custom_cookbooks": {
+    "enabled": true,
+    "scm": {
+      "scm_type": "git",
+      "repository": "pypoc"
+    }
+  }
+}

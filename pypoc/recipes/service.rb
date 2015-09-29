@@ -1,13 +1,12 @@
 # https://supermarket.chef.io/cookbooks/supervisor
 include_recipe 'supervisor'
 
-supervisor_service 'flask_app' do
-  service_name 'flask_app'
-  command "python app.py"
+supervisor_service 'numpy_app' do
+  command "python #{node['pypoc']['workdir']}/app.py"
   action :enable
-  autostart=false
-  autorestart=true
+  autostart false
+  autorestart 'unexpected'
   user 'bodylabs'
-  stderr_logfile "#{node['flask_app']['stderr_log_file']}"
-  stdout_logfile "#{node['flask_app']['stdout_log_file']}"
+  stderr_logfile "#{node['pypoc']['stderr_log_file']}"
+  stdout_logfile "#{node['pypoc']['stdout_log_file']}"
 end
