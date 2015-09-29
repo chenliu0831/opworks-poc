@@ -57,3 +57,5 @@ bin/*
 .kitchen.local.yml
 
 imagebuild.output.txt
+
+/vm/
