@@ -22,7 +22,7 @@
     "enabled": true,
     "scm": {
       "scm_type": "git",
-      "repository": "pypoc"
+      "repository": "."
     }
   }
 }
