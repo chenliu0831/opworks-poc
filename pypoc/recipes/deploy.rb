@@ -33,7 +33,7 @@ node[:deploy].each do |application, deploy|
   include_recipe 'python'
   include_recipe 'python::pip'
 
-  python_pip "#{node['flask_app']['package_location']}"
+  python_pip "-r #{node['flask_app']['package_location']}"
 
   Chef::Log.info('Python dependencies install finished')
 
