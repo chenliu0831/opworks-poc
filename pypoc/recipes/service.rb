@@ -2,7 +2,7 @@
 include_recipe 'supervisor'
 
 workdir = "#{node['deploy']['pypoc']['deploy_to']}/current"
-logdir = "#{workdir}/log"
+logdir = "#{node['pypoc']['supervisor_log_dir']}"
 
 supervisor_service 'numpy_app' do
   command "python #{workdir}/app.py"

@@ -1,10 +1,15 @@
 Chef::Log.info('Hello from POC Setup')
 
+#stop the sevice
 include_recipe 'pypoc::service'
 
-#stop the sevice
-supervisor_service 'numpy_app' do
-  action [:stop, :disable]
+execute 'stop all supervisord' do
+  only_if { ::File.exists?("/etc/supervisord.conf") }
+  command 'sudo supervisorctl stop all'
 end
 
-
+# create directory
+execute 'create log directory for supervisor' do
+  not_if { ::Dir.exists?("#{node['pypoc']['supervisor_log_dir']}") }
+  command "sudo mkdir #{node['pypoc']['supervisor_log_dir']}"
+end

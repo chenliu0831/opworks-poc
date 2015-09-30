@@ -26,7 +26,6 @@ node[:deploy].each do |application, deploy|
   end
 
   Chef::Log.info('Installing python dependencies')
-  Chef::Log.info(deploy)
   # POC app
 
   # https://supermarket.chef.io/cookbooks/python

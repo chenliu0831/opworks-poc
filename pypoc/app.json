@@ -8,8 +8,8 @@
       "recipe[dependencies]",
       "recipe[ebs]",
       "recipe[opsworks_ganglia::client]",
-      "recipe[pypoc::setup]",
       "recipe[deploy::default]",
+      "recipe[pypoc::setup]",
       "recipe[pypoc::deploy]",
       "recipe[opsworks_ganglia::configure-client]",
       "recipe[agent_version]"
