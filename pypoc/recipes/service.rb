@@ -9,7 +9,7 @@ supervisor_service 'numpy_app' do
   action :enable
   autostart false
   autorestart 'unexpected'
-  user "#{node['opsworks']['deploy_user']['user']}"
+  user 'deploy'
   stderr_logfile "#{logdir}/pypoc.stderr.log"
   stdout_logfile "#{logdir}/pypoc.stdout.log"
 
