@@ -13,9 +13,7 @@
       "scm": {
         "scm_type": "git",
         "repository": "opsworks-python-app"
-      },
-      "deploy_to": "/bodylabs/pypoc"
-
+      }
     }
   },
   "opsworks_custom_cookbooks": {

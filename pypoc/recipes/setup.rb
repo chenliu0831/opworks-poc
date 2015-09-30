@@ -1,8 +1,5 @@
 Chef::Log.info('Hello from POC Setup')
 
-#stop the sevice
-include_recipe 'pypoc::service'
-
 execute 'stop all supervisord' do
   only_if { ::File.exists?("/etc/supervisord.conf") }
   command 'sudo supervisorctl stop all'
