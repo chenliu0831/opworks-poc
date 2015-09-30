@@ -10,8 +10,8 @@ supervisor_service 'numpy_app' do
   autostart false
   autorestart 'unexpected'
   user 'deploy'
-  stderr_logfile "#{logdir}/pypoc.stderr.log"
-  stdout_logfile "#{logdir}/pypoc.stdout.log"
+  stderr_logfile "#{logdir}pypoc.stderr.log"
+  stdout_logfile "#{logdir}pypoc.stdout.log"
 
   environment "PYTHONUNBUFFERED" => node['pypoc']['BUFFER_TIMEOUT']
 end
